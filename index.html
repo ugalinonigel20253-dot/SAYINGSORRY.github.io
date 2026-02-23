@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>HAPPY BIRTHDAY, BABI</title>
+    <title>SAYING SORRY </title>
     
 
   </head>
@@ -12,160 +12,333 @@
   <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-<style>
-:root{--pastel-pink:#ffe4e1;--dark-pink:#db7093;--cream:#fffdd0;--text-color:#5c4040;--border-color:#d8bfd8}
-body{margin:0;padding:0;background-color:var(--pastel-pink);background-image:radial-gradient(#ffcce0 20%, transparent 20%), radial-gradient(#ffcce0 20%, transparent 20%);background-size:50px 50px;background-position:0 0, 25px 25px;font-family:'Playfair Display',serif;color:var(--text-color);height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center}
-.album-container{width:90%;max-width:600px;height:80vh;background-color:var(--cream);border:8px double var(--border-color);border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,0.1);position:relative;overflow:hidden;padding:20px;text-align:center}
-.album-container::before,.album-container::after{content:"❦";position:absolute;font-size:30px;color:var(--dark-pink)}
-.album-container::before{top:10px;left:15px}.album-container::after{bottom:10px;right:15px;transform:rotate(180deg)}
-.slide{display:none;flex-direction:column;justify-content:center;align-items:center;height:100%;animation:fadeEffect 1.5s}
-.slide.active{display:flex}
-@keyframes fadeEffect{from{opacity:0.4}to{opacity:1}}
-h1,h2{font-family:'Cinzel',serif;color:var(--dark-pink);margin-bottom:10px}
-p{font-size:0.9rem;line-height:1.5;padding:0 15px}
-.signature{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--dark-pink);margin-top:15px}
-.photo-frame{
-width:180px;
-height:180px;
-background-color:#fff;
-border:none;
-padding:8px 8px 35px 8px;
-box-shadow:2px 2px 10px rgba(0,0,0,0.15);
-margin-bottom:15px;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-transform:rotate(-2deg);
-}
-.photo-frame img{width:100%;height:100%;object-fit:cover;filter:sepia(0.1) contrast(1.05)}
-.museum-container{position:relative;width:100%;padding:10px 0}
-.museum-gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:10px}
-.museum-img{width:70px;height:70px;object-fit:cover;box-shadow:2px 2px 6px rgba(0,0,0,0.1);padding:4px;background:#fff;transform:rotate(-2deg)}
-.museum-img:nth-child(even){transform:rotate(2deg)}
-.carnation-left,.carnation-right{position:absolute;top:50%;transform:translateY(-50%);font-size:2rem;color:var(--dark-pink)}
-.carnation-left{left:5px}.carnation-right{right:5px}
-.controls{position:absolute;bottom:15px;width:100%;display:flex;justify-content:center;gap:20px}
-button{background-color:var(--dark-pink);color:white;border:none;padding:10px 20px;border-radius:20px;cursor:pointer;font-family:'Cinzel',serif;transition:0.3s}
-button:hover{background-color:#c71585}
-#cover-slide{cursor:pointer}
-.cover-content h1{font-size:2.5rem}
-.flower-icon{font-size:4rem;color:var(--dark-pink);animation:float 3s ease-in-out infinite}
-@keyframes float{0%{transform:translateY(0px)}50%{transform:translateY(-10px)}100%{transform:translateY(0px)}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #2c2c2c; /* Dark background to frame the site */
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Quicksand', sans-serif;
+            overflow: hidden;
+        }
+
+        /* --- CONTAINER (16:9 ASPECT RATIO) --- */
+        .slides-container {
+            width: 100%;
+            max-width: 177.78vh; /* 16/9 * 100vh */
+            height: 56.25vw;    /* 9/16 * 100vw */
+            max-height: 100vh;
+            background: linear-gradient(180deg, #fff0f5 0%, #ffe6ea 100%);
+            position: relative;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+            /* Hide scrollbar for cleaner look */
+            scrollbar-width: none; 
+        }
+        
+        .slides-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* --- SLIDE STYLES --- */
+        .slide {
+            width: 100%;
+            height: 100%; /* Full height of the container */
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 5%;
+            overflow: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            color: #d45d79; /* Soft dark pink for headings */
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h1 { font-size: 4rem; line-height: 1.1; }
+        h2 { font-size: 2.5rem; }
+
+        p {
+            color: #666;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .subtext {
+            font-size: 1rem;
+            color: #888;
+            font-style: italic;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        /* --- ANIMATIONS --- */
+        /* Fade In Effect */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Petals Animation */
+        .petal {
+            position: absolute;
+            color: #ffc0cb;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: floatUp linear infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* --- STICKERS & DECOR --- */
+        .sticker {
+            position: absolute;
+            font-size: 3rem;
+            z-index: 10;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
+            transition: transform 0.3s ease;
+        }
+        
+        .sticker:hover { transform: scale(1.1) rotate(5deg); }
+
+        /* Specific Sticker Positions */
+        .sticker-kuromi { bottom: 5%; right: 5%; font-size: 4rem; } /* Using Emoji for reliability */
+        .sticker-cry { font-size: 6rem; margin-bottom: 1rem; display: block; }
+        .sticker-flower-row { 
+            position: absolute; 
+            bottom: 20px; 
+            width: 100%; 
+            text-align: center; 
+            font-size: 1.5rem; 
+            opacity: 0.6;
+            letter-spacing: 10px;
+        }
+        
+        .frame-flowers {
+            position: absolute;
+            top: 20px; left: 20px; right: 20px; bottom: 20px;
+            border: 2px dashed #ffc0cb;
+            border-radius: 20px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 768px) {
+            .slides-container {
+                height: 100vh;
+                width: 100vw;
+                max-width: none;
+                max-height: none;
+            }
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            p { font-size: 1rem; padding: 0 20px; }
+            .sticker { font-size: 2.5rem; }
+            .sticker-kuromi { bottom: 2%; right: 2%; font-size: 3rem; }
+        }
+
+        /* --- SLIDE SPECIFICS --- */
+slide-1 { z        #-index: 2; }
+        #slide-5 .sticker-cry { font-size: 8rem; } /* Larger for meme slide */
+
+    </style>
 </head>
 <body>
-<div class="album-container">
 
-<!-- SLIDE 1: COVER -->
-<div class="slide active" id="slide-1" onclick="startShow()">
-<div class="cover-content"><div class="flower-icon">🌸</div><h1>Happy Birthday</h1><p>For Babi — Click to open</p></div>
-</div>
+    <div class="slides-container" id="slider">
 
-<!-- SLIDE 2: APPRECIATION -->
-<div class="slide" id="slide-2">
-<h2>Appreciation</h2>
-<div class="photo-frame"><img src="https://i.imgur.com/2BUv2C2.jpg" alt="Photo"></div>
-<p>Mi Amor, my babi,<br><br>I just want you to know how much I appreciate you. Thank you for being patient with me, especially during the times when I overthink or become too much. You always try to understand me even when I struggle to explain myself. thank you for appreciating my efforts, you always seen me and I'm so grateful for it.</p>
-</div>
+        <!-- SLIDE 1: COVER -->
+        <section class="slide" id="slide-1">
+            <!-- Decor: Floating Petals -->
+            <div class="petal" style="left: 10%; animation-duration: 7s; animation-delay: 0s;">🌸</div>
+            <div class="petal" style="left: 30%; animation-duration: 9s; animation-delay: 2s;">🌸</div>
+            <div class="petal" style="left: 70%; animation-duration: 6s; animation-delay: 1s;">🌸</div>
+            <div class="petal" style="left: 90%; animation-duration: 8s; animation-delay: 3s;">🌸</div>
 
-<!-- SLIDE 3: LOVE -->
-<div class="slide" id="slide-3">
-<h2>Love</h2>
-<div class="photo-frame" style="transform:rotate(2deg)"><img src="https://i.imgur.com/i0zvCnt.jpg" alt="Photo"></div>
-<p>Babi, I love you more than words can explain. Not just in the big romantic way, but in the quiet moments too — the simple talks, the small updates, the random "kumain ka na ba?" messages. Loving you feels natural, safe, and real. I will make sure that i'm not just your "manliligaw" — but, also your comfort person.</p>
-</div>
+            <div class="content fade-in-element">
+                <h1>i'm sorry 🥺</h1>
+                <p class="subtext">no excuses. just honesty.</p>
+            </div>
 
-<!-- SLIDE 4: ASSURANCE -->
-<div class="slide" id="slide-4">
-<h2>Assurance</h2>
-<div class="photo-frame" style="transform:rotate(-1deg)"><img src="https://i.imgur.com/KYfWb2e.jpg" alt="Photo"></div>
-<p>I know there are times when things get overwhelming — school, activities, quizzes, life in general. I just want you to remember that I'm not here to pressure you. I'm here to support you. No pressure to reply fast, no pressure to be perfect. I'm staying. I'm choosing you every day, even on the heavy days. sorry for the times that i always annoy you: sadya yung iba hehhee(ang cute mo kasi paggalit)</p>
-</div>
+            <!-- Sticker: Kuromi (Simulated with Emoji) holding flower -->
+            <div class="sticker sticker-kuromi fade-in-element" style="animation-delay: 1s;">
+                🖤 <span style="font-size: 1.5rem;">🌸</span>
+            </div>
+        </section>
 
-<!-- SLIDE 5: SHARED MEMORIES -->
-<div class="slide" id="slide-5">
-<h2>Shared Memories</h2>
-<div class="photo-frame" style="transform:rotate(1deg)"><img src="https://i.imgur.com/gPMjwer.jpg" alt="Photo"></div>
-<p>Happy 6th months again, babi. 🥹 I still smile when I think about our little moments — the times we spent together kahit saglit, the way we accompany each other, the small lambings i made, the simple chats that somehow mean everything. Those memories are so special to me because they're with you.</p>
-</div>
+        <!-- SLIDE 2: OWNERSHIP -->
+        <section class="slide" id="slide-2">
+            <div class="content fade-in-element">
+                <h2>i was wrong.</h2>
+                <p>
+                    i take full responsibility for my actions and the way i made you feel. sorry for the (unsnet, no response, late replies, and for nonsene and surface level questions) i know napikon ikaw and overstimulate, and that’s on me.
+                </p>
+            </div>
+            <div class="sticker fade-in-element" style="top: 10%; right: 10%;">🥺</div>
+        </section>
 
-<!-- SLIDE 6: GRATITUDE -->
-<div class="slide" id="slide-6">
-<h2>Gratitude</h2>
-<div class="photo-frame" style="transform:rotate(-2deg)"><img src="https://i.imgur.com/CFtd127.jpg" alt="Photo"></div>
-<p>Thank you for spending time with me, even when you're tired. Thank you for letting me be part of your world. Every minute with you — kahit short time lang — is something I treasure. You make ordinary days feel different. you have a vip and permanent spot in my life, i love you.</p>
-</div>
+        <!-- SLIDE 3: ACCOUNTABILITY -->
+        <section class="slide" id="slide-3">
+            <div class="content fade-in-element">
+                <h2>you deserved better.</h2>
+                <p>
+                    you deserved consistency. you deserved emotional presence. you deserve that shows up the right way. i didn’t do that, and prolly make you more annoy and i’m sorry.
+                </p>
+            </div>
+            <div class="sticker-flower-row fade-in-element">
+                🌸 🤍 🌸 🤍 🌸
+            </div>
+        </section>
 
-<!-- SLIDE 7: FUTURE & PROMISE -->
-<div class="slide" id="slide-7">
-<h2>Future & Promise</h2>
-<div class="photo-frame" style="transform:rotate(2deg)"><img src="https://i.imgur.com/APbmnt5.jpg" alt="Photo"></div>
-<p>Mi amor, I don't promise perfection, but I promise effort. I promise to communicate better, to understand you more, and to grow with you. I want to build more memories, laugh more, overcome stress together, and celebrate more months — more years — with you.</p>
-</div>
+        <!-- SLIDE 4: GROWTH -->
+        <section class="slide" id="slide-4">
+            <div class="content fade-in-element">
+                <h2>i will do better.</h2>
+                <p>
+                    not through promises, but through actions. i’m choosing to grow, to listen, and to be more mindful. i won’t repeat the same mistakes.
+                </p>
+            </div>
+            <div class="sticker fade-in-element" style="bottom: 15%; left: 15%;">
+                🤍 <span style="font-size:1.5rem">🖤</span>
+            </div>
+        </section>
 
-<!-- SLIDE 8: MINI MUSEUMS OF US -->
-<div class="slide" id="slide-8">
-<h2>Mini Museums of Us</h2>
-<div class="museum-container">
-<div class="carnation-left">🌸</div>
-<div class="carnation-right">🌸</div>
-<div class="museum-gallery">
-<img class="museum-img" src="https://i.imgur.com/i0zvCnt.jpg" alt="Photo1">
-<img class="museum-img" src="https://i.imgur.com/KYfWb2e.jpg" alt="Photo2">
-<img class="museum-img" src="https://i.imgur.com/PuLyIRp.jpg" alt="Photo3">
-<img class="museum-img" src="https://i.imgur.com/Mtl6b1W.jpg" alt="Photo4">
-<img class="museum-img" src="https://i.imgur.com/MHsSdfK.jpg" alt="Photo5">
-<img class="museum-img" src="https://i.imgur.com/yttld3b.jpg" alt="Photo6">
-<img class="museum-img" src="https://i.imgur.com/iSIfLOZ.jpg" alt="Photo7">
-<img class="museum-img" src="https://i.imgur.com/knH0qGC.jpg" alt="Photo9">
-<img class="museum-img" src="https://i.imgur.com/cAJZLm7.jpg" alt="Photo10">
-<img class="museum-img" src="https://i.imgur.com/WFEbFzw.jpg" alt="Photo11">
-<img class="museum-img" src="https://i.imgur.com/ceaNdIU.jpg" alt="Photo12">
-<img class="museum-img" src="https://i.imgur.com/h46g3B1.jpg" alt="Photo13">
-<img class="museum-img" src="https://i.imgur.com/7ninRAy.jpg" alt="Photo14">
-<img class="museum-img" src="https://i.imgur.com/JcSaM1t.jpg" alt="Photo15">
-<img class="museum-img" src="https://i.imgur.com/zqDfaMm.jpg" alt="Photo16">
-<img class="museum-img" src="https://i.imgur.com/HgmiTrv.jpg" alt="Photo17">
-<img class="museum-img" src="https://i.imgur.com/gwzSXkk.jpg" alt="Photo18">
-<img class="museum-img" src="https://i.imgur.com/kM7cK5P.jpg" alt="Photo19">
-<img class="museum-img" src="https://i.imgur.com/lecysQN.jpg" alt="Photo20">
-<img class="museum-img" src="https://i.imgur.com/0UEKXNj.jpg" alt="Photo21">
-<img class="museum-img" src="https://i.imgur.com/KmvymqR.jpg" alt="Photo22">
-<img class="museum-img" src="https://i.imgur.com/NdWvYRf.jpg" alt="Photo23">
-<img class="museum-img" src="https://i.imgur.com/JT7Jb0H.jpg" alt="Photo24">
-<img class="museum-img" src="https://i.imgur.com/zNb1qrF.jpg" alt="Photo25">
-<img class="museum-img" src="https://i.imgur.com/z5u4reD.jpg" alt="Photo26">
-<img class="museum-img" src="https://i.imgur.com/UgVHBWS.jpg" alt="Photo27">
-<img class="museum-img" src="https://i.imgur.com/BNtkHyM.jpg" alt="Photo28">
-</div>
-</div>
-<p>Like a museum, these moments are precious pieces of art to me. Each photo tells a story — our story. And I want to keep collecting more memories with you. i'm looking forward for more memories with you. I will win your heart, mwaah</p>
-</div>
+        <!-- SLIDE 5: CUTE MEME -->
+        <section class="slide" id="slide-5">
+            <div class="content fade-in-element">
+                <span class="sticker-cry">🥺</span>
+                <h2>me realizing i messed up:</h2>
+                <p style="margin-top: 1rem; font-weight: 600; color: #d45d79;">
+                    accountability mode: activated.
+                </p>
+            </div>
+        </section>
 
-<!-- SLIDE 9: CLOSING -->
-<div class="slide" id="slide-9">
-<h2>Closing</h2>
-<div class="photo-frame" style="transform:rotate(-1deg)"><img src="https://i.imgur.com/PuLyIRp.jpg" alt="Museum Photo"></div>
-<p>I love you so much, babi.<br>Thank you for being my peace, my safe place, and my favorite person. 🤍<br><br>Always here. Always yours.</p>
-<div class="signature">— Your Niji</div>
-</div>
+        <!-- SLIDE 6: REASSURANCE -->
+        <section class="slide" id="slide-6">
+            <div class="frame-flowers fade-in-element"></div>
+            <div class="content fade-in-element">
+                <p style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">
+                    no pressure.
+                </p>
+                <p style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">
+                    no expectations.
+                </p>
+                <p style="font-size: 1.5rem; font-family: 'Playfair Display', serif;">
+                    no forcing.
+                </p>
+                <div style="margin-top: 2rem; font-size: 1.2rem;">
+                    just sincerity. 🥺🤍
+                </div>
+                <div style="margin-top: 2rem; font-size: 1.2rem;">
+                    Let's eat foods and spend time at the midnight, i'll make bawi sayo po. promise
+                </div>
+          </div>
+        </section>
 
-<div class="controls" id="nav-buttons" style="visibility:hidden;">
-<button onclick="changeSlide(-1)">❮ Prev</button><button onclick="changeSlide(1)">Next ❯</button>
-</div>
+        <!-- SLIDE 7: CLOSING -->
+        <section class="slide" id="slide-7">
+            <div class="content fade-in-element">
+                <h1>i'm still here.</h1>
+                <p class="subtext">whenever you’re ready.</p>
+            </div>
+            
+            <!-- Final Flower and Waving Kuromi -->
+            <div class="sticker fade-in-element" style="bottom: 5%; left: 50%; transform: translateX(-50%); font-size: 3rem;">
 
-</div>
-<script>
-let currentSlide=1;const totalSlides=9;let hasStarted=false;
-function startShow(){if(!hasStarted){hasStarted=true;document.getElementById('nav-buttons').style.visibility='visible';changeSlide(1)}}
-function changeSlide(n){document.getElementById('slide-'+currentSlide).classList.remove('active');currentSlide+=n;if(currentSlide>totalSlides){currentSlide=1}else if(currentSlide<1){currentSlide=totalSlides}
-document.getElementById('slide-'+currentSlide).classList.add('active')}
-</script>
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣀⢠⠋⠉⠉⠒⠲⢤⣀⣠⡀⠀
+⠀⠀⠀⠀⠀⠀⣀⣀⣀⢀⡠⠖⠋⠉⠀⠀⠀⠀⠉⠉⠢⣄⠀⠀⠀⢀⠼⠤⠇⠀
+⠀⠀⠀⣀⠔⠊⠁⠀⢨⠏⠀⠀⠀⣠⣶⣶⣦⠀⠀⠀⠀⠀⠱⣄⡴⠃⠀⠀⠀⠀
+⢸⣉⠿⣁⠀⠀⠀⢀⡇⠀⠀⠀⠀⢿⣽⣿⣼⡠⠤⢄⣀⠀⠀⢱⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠑⢦⡀⢸⠀⠀⠀⡠⠒⠒⠚⠛⠉⠀⢠⣀⡌⠳⡀⡌⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠉⠉⣆⠀⢰⠁⣀⣀⠀⠀⣀⠀⠈⡽⣧⢀⡷⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡤⢄⠀⠈⠢⣸⣄⢽⣞⡂⠀⠈⠁⣀⡜⠁⣩⡷⠿⠆⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢯⣁⡸⠀⠀⠀⡬⣽⣿⡀⠙⣆⡸⠛⠠⢧⠀⡿⠯⠆⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣀⡀⠀⠀⡤⠤⣵⠁⢸⣻⡤⠏⠀⠀⠀⠀⢹⠀⠀⠀⡊⠱⣀⠀⠀⠀
+⠀⠀⢀⠜⠀⢘⠀⠀⠱⠲⢜⣢⣤⣧⠀⠀⠀⠀⠀⢴⠇⠀⠀⠀⠧⠠⠜⠀⠀⠀
+⠀⠀⠘⠤⠤⠚⠀⠀⠀⠀⠀⠀⢸⠁⠁⠀⣀⠎⠀⠻⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠣⣀⣀⡴⠤⠄⠴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            </div>
+            <div class="sticker fade-in-element" style="bottom: 5%; right: 5%; font-size: 2.5rem;">
+                🖤👋
+            </div>
+
+            <div class="fade-in-element" style="position: absolute; bottom: 10%; width: 100%; text-align: center; font-size: 0.8rem; color: #aaa;">
+                you’re trying in a thoughtful way. that says a lot about your heart 🥺🤍
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // INTERSECTION OBSERVER FOR FADE-IN ANIMATIONS
+        // This triggers the fade effect as you scroll to each slide
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: document.querySelector('.slides-container'),
+                threshold: 0.3 // Trigger when 30% of the slide is visible
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add 'visible' class to all elements with class 'fade-in-element' inside the slide
+                        const fadeElements = entry.target.querySelectorAll('.fade-in-element');
+                        fadeElements.forEach(el => el.classList.add('visible'));
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                observer.observe(slide);
+            });
+        });
+    </script>
+
 </body>
 </html>
     
